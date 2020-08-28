@@ -28,7 +28,7 @@
     <Field_0 name="SpplrID">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="17"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="SpplrID"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="0"/>
@@ -409,7 +409,7 @@
     <Field_10 name="Dscntnd">
       <Value name="Value" type="1"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="1"/>
       <Name name="Name" type="12" value="Dscntnd"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="10"/>
@@ -481,7 +481,7 @@
     <Field_12 name="TxRt">
       <Value name="Value" type="7"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="7"/>
       <Name name="Name" type="12" value="TxRt"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="12"/>
@@ -517,7 +517,7 @@
     <Field_13 name="PrmryCntctIDfk">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="PrmryCntctIDfk"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="13"/>
@@ -626,8 +626,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="true"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_1>
     <Row_2>
       <field_0 name="SpplrID" binary="false" null="false" value="88"/>
@@ -642,8 +642,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_2>
     <Row_3>
       <field_0 name="SpplrID" binary="false" null="false" value="87"/>
@@ -658,8 +658,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_3>
     <Row_4>
       <field_0 name="SpplrID" binary="false" null="false" value="86"/>
@@ -674,8 +674,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_4>
     <Row_5>
       <field_0 name="SpplrID" binary="false" null="false" value="85"/>
@@ -690,8 +690,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_5>
     <Row_6>
       <field_0 name="SpplrID" binary="false" null="false" value="84"/>
@@ -706,8 +706,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_6>
     <Row_7>
       <field_0 name="SpplrID" binary="false" null="false" value="83"/>
@@ -722,8 +722,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_7>
     <Row_8>
       <field_0 name="SpplrID" binary="false" null="false" value="82"/>
@@ -738,8 +738,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_8>
     <Row_9>
       <field_0 name="SpplrID" binary="false" null="false" value="81"/>
@@ -754,8 +754,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_9>
     <Row_10>
       <field_0 name="SpplrID" binary="false" null="false" value="77"/>
@@ -770,8 +770,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_10>
     <Row_11>
       <field_0 name="SpplrID" binary="false" null="false" value="76"/>
@@ -786,8 +786,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_11>
     <Row_12>
       <field_0 name="SpplrID" binary="false" null="false" value="75"/>
@@ -802,8 +802,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_12>
     <Row_13>
       <field_0 name="SpplrID" binary="false" null="false" value="73"/>
@@ -818,8 +818,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_13>
     <Row_14>
       <field_0 name="SpplrID" binary="false" null="false" value="72"/>
@@ -834,8 +834,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_14>
     <Row_15>
       <field_0 name="SpplrID" binary="false" null="false" value="69"/>
@@ -850,8 +850,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_15>
     <Row_16>
       <field_0 name="SpplrID" binary="false" null="false" value="68"/>
@@ -866,8 +866,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_16>
     <Row_17>
       <field_0 name="SpplrID" binary="false" null="false" value="67"/>
@@ -882,8 +882,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_17>
     <Row_18>
       <field_0 name="SpplrID" binary="false" null="false" value="65"/>
@@ -899,7 +899,7 @@
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
       <field_12 name="TxRt" binary="false" null="false" value="0.081"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_18>
     <Row_19>
       <field_0 name="SpplrID" binary="false" null="false" value="61"/>
@@ -914,8 +914,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_19>
     <Row_20>
       <field_0 name="SpplrID" binary="false" null="false" value="60"/>
@@ -930,8 +930,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_20>
     <Row_21>
       <field_0 name="SpplrID" binary="false" null="false" value="57"/>
@@ -946,8 +946,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_21>
     <Row_22>
       <field_0 name="SpplrID" binary="false" null="false" value="56"/>
@@ -962,8 +962,8 @@
       <field_9 name="Fx" binary="false" null="false">2222222222</field_9>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_22>
     <Row_23>
       <field_0 name="SpplrID" binary="false" null="false" value="53"/>
@@ -978,8 +978,8 @@
       <field_9 name="Fx" binary="false" null="false">9999999999</field_9>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_23>
     <Row_24>
       <field_0 name="SpplrID" binary="false" null="false" value="52"/>
@@ -994,8 +994,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_24>
     <Row_25>
       <field_0 name="SpplrID" binary="false" null="false" value="51"/>
@@ -1010,8 +1010,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_25>
     <Row_26>
       <field_0 name="SpplrID" binary="false" null="false" value="50"/>
@@ -1026,8 +1026,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_26>
     <Row_27>
       <field_0 name="SpplrID" binary="false" null="false" value="48"/>
@@ -1042,8 +1042,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_27>
     <Row_28>
       <field_0 name="SpplrID" binary="false" null="false" value="42"/>
@@ -1058,8 +1058,8 @@
       <field_9 name="Fx" binary="false" null="true"/>
       <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
       <field_11 name="Nts" binary="false" null="true"/>
-      <field_12 name="TxRt" binary="false" null="true"/>
-      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="false" value="0"/>
     </Row_28>
   </Rows>
 </TableDef>

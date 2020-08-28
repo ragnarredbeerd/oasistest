@@ -21,7 +21,7 @@
     <Field_0 name="CntctID">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="17"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="CntctID"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="0"/>
@@ -53,7 +53,7 @@
     <Field_1 name="SpplrIDfk">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="SpplrIDfk"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="1"/>

@@ -20,7 +20,7 @@
     <Field_0 name="SpplrIDfk">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="SpplrIDfk"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="0"/>
@@ -53,7 +53,7 @@
     <Field_1 name="SpplrOrdrID">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="17"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="SpplrOrdrID"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="1"/>
@@ -84,7 +84,7 @@
     <Field_2 name="OrdrCntctIDfk">
       <Value name="Value" type="4"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="4"/>
       <Name name="Name" type="12" value="OrdrCntctIDfk"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="2"/>
@@ -117,7 +117,7 @@
     <Field_3 name="OrdrDt">
       <Value name="Value" type="8"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="8"/>
       <Name name="Name" type="12" value="OrdrDt"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="3"/>
@@ -151,7 +151,7 @@
     <Field_4 name="ShpDt">
       <Value name="Value" type="8"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="8"/>
       <Name name="Name" type="12" value="ShpDt"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="4"/>
@@ -185,7 +185,7 @@
     <Field_5 name="DtPrmsd">
       <Value name="Value" type="8"/>
       <Attributes name="Attributes" type="4" value="1"/>
-      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1024"/>
       <Type name="Type" type="3" value="8"/>
       <Name name="Name" type="12" value="DtPrmsd"/>
       <OrdinalPosition name="OrdinalPosition" type="3" value="5"/>
