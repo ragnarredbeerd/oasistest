@@ -1,0 +1,308 @@
+Option Compare Database
+Option Explicit
+
+Private mcmd As ADODB.Command
+'
+'
+'Public Function ADOSetFetch(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant) As ADODB.Recordset
+'On Error GoTo ADOErr 'return a specific recordset(can likely replace sourceform)
+'
+'Dim BlWsOpn As Boolean
+'If gCnn Is Nothing Then Call SetGlobalConnection: gCnn.Open: BlWsOpn = False Else BlWsOpn = True
+'
+'Dim mcmd As ADODB.Command
+'Set mcmd = New ADODB.Command
+'Dim Rst As ADODB.Recordset
+'Set Rst = New ADODB.Recordset
+'
+'If Not IsMissing(Prm1) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+'End If
+'
+'If Not IsMissing(Prm2) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+'End If
+'
+'If Not IsMissing(Prm3) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+'End If
+'
+'If Not IsMissing(Prm4) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+'End If
+'With mcmd
+'        .CommandText = qry
+'        If qry Like "SELECT*" Then
+'        .CommandType = adCmdText
+'        Else
+'        .CommandType = adCmdStoredProc
+'        End If
+'
+'        .ActiveConnection = gCnn
+'        Rst.CursorLocation = adUseClient
+'        Rst.Open mcmd, , adOpenDynamic, adLockOptimistic
+'        Set ADOSetFetch = Rst.Clone
+'End With
+'Set Rst = Nothing
+'If BlWsOpn = False Then Set gCnn = Nothing
+'Exit Function
+'
+'ADOErr:
+'Call SQLserver_ADO_Error_Message(Err.Description, Rst)
+'End Function
+'
+'Public Sub ADODlt(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant)
+'On Error GoTo Dlt_Err 'delete records. issues currently
+'Exit Sub
+'        If MsgBox("Would you like to delete this record?", vbYesNo, "Delete Item") = vbYes Then
+'        'run delete
+'        On Error GoTo Dlt_Err
+'
+'        Call SetGlobalConnection
+'gCnn.Open
+'
+'Dim mcmd As ADODB.Command
+'Set mcmd = New ADODB.Command
+'Dim Rst As ADODB.Recordset
+'Set Rst = New ADODB.Recordset
+'
+'If Not IsMissing(Prm1) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+'End If
+'
+'If Not IsMissing(Prm2) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+'End If
+'
+'If Not IsMissing(Prm3) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+'End If
+'
+'If Not IsMissing(Prm4) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+'End If
+'With mcmd
+'                .CommandText = qry
+'                .CommandType = adCmdStoredProc
+'                gCnn.Open
+'                .ActiveConnection = gCnn
+'                .Execute
+'        End With
+'        Set mcmd = Nothing
+'        Set gCnn = Nothing
+'End If
+'
+'
+'
+'Exit Sub
+'
+'Dlt_Err:
+'Set mcmd = Nothing
+'Call SQLserver_ADO_Error_Message(Err.Description)
+'End Sub
+'
+Public Function SQLBELookup(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant) As Variant
+On Error GoTo ADOErr 'retrieve a specific value, essentially dlookup
+Dim blWsOpn As Boolean
+If gCnn Is Nothing Then Call SetGlobalConnection: gCnn.Open: blWsOpn = True
+
+Dim mcmd As ADODB.Command
+Set mcmd = New ADODB.Command
+Dim Rst As ADODB.Recordset
+Set Rst = New ADODB.Recordset
+
+If Not IsMissing(Prm1) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+End If
+
+If Not IsMissing(Prm2) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+End If
+
+If Not IsMissing(Prm3) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+End If
+
+If Not IsMissing(Prm4) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+End If
+With mcmd
+        .CommandText = qry
+        .CommandType = adCmdStoredProc
+        .ActiveConnection = gCnn
+        Rst.CursorLocation = adUseClient
+        Rst.Open mcmd, , adOpenStatic, adLockOptimistic
+        SQLBELookup = IIf(Rst.EOF = True, Null, Rst.Fields(0))
+End With
+
+If blWsOpn = False Then Set gCnn = Nothing
+
+extSb:
+Call RcrdStClnUp(Rst)
+Exit Function
+
+ADOErr:
+Call SQLserver_ADO_Error_Message(Err.Description)
+Resume extSb
+
+End Function
+'
+'
+'
+'Public Sub SourceADO(qry As String, ctl As Control, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant)
+'On Error GoTo ADOErr 'populate control
+'Call SetGlobalConnection: gCnn.Open
+'Dim Rst As ADODB.Recordset
+'Set Rst = New ADODB.Recordset
+'Rst.CursorLocation = adUseClient
+'
+'Dim mcmd As ADODB.Command
+'Set mcmd = New ADODB.Command
+'If qry Like "SELECT*" Then
+'mcmd.CommandType = adCmdText
+'Else
+'mcmd.CommandType = adCmdStoredProc
+'End If
+'mcmd.CommandText = qry
+'mcmd.ActiveConnection = gCnn
+'
+'If Not IsMissing(Prm1) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+'End If
+'
+'If Not IsMissing(Prm2) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+'End If
+'
+'If Not IsMissing(Prm3) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+'End If
+'
+'If Not IsMissing(Prm4) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+'End If
+'
+'Rst.Open mcmd, , adOpenStatic, adLockBatchOptimistic
+'
+'Set Rst.ActiveConnection = Nothing
+'
+'Set ctl.Recordset = Rst.Clone
+'
+'Rst.Close
+'
+'Set Rst = Nothing
+'Set gCnn = Nothing
+'Exit Sub
+'
+'ADOErr:
+'Call SQLserver_ADO_Error_Message(Err.Description)
+'If Not Rst Is Nothing Then
+'    If Rst.State = 1 Then Rst.Close
+'    Set Rst = Nothing
+'End If
+'
+'End Sub
+
+'----------SQL BACKEND RELATED--------------
+
+Public Sub ViewTable(RS1 As ADODB.Recordset)
+
+Dim StrTblData As String
+Dim Fld As ADODB.Fields
+Dim i As Integer
+For i = 0 To RS1.Fields.Count - 1
+    StrTblData = StrTblData & " " & RS1.Fields(i).Name
+Next
+Debug.Print (StrTblData)
+Do While Not RS1.EOF
+    StrTblData = ""
+    
+    For i = 0 To RS1.Fields.Count - 1
+    StrTblData = StrTblData & " " & RS1.Fields(i)
+    Next
+    Debug.Print (StrTblData)
+RS1.MoveNext
+Loop
+
+End Sub
+
+Public Sub GetProcs(Optional Sp As String) 'return list of stored procedures, or definition of a selected one if sp is provided
+On Error GoTo ADOErr
+Call SetGlobalConnection
+
+Set mcmd = New ADODB.Command
+Dim rstList As ADODB.Recordset
+
+gCnn.Open
+If Not IsMissing(Sp) And Nz(Sp, "") <> "" Then ' if no stored procedure provided
+Sp = "EXEC sp_helptext '" & Sp & "'"
+Set rstList = gCnn.Execute(Sp)
+With rstList
+      Debug.Print .Fields(0)
+End With
+Else
+  ' Open the tables schema rowset.
+   Set rstList = gCnn.OpenSchema(adSchemaProcedures)
+
+   ' Loop through the results and print the
+   ' names and types in the Immediate pane.
+   With rstList
+      Do While Not .EOF
+             If Not .Fields("PROCEDURE_SCHEMA") Like "*sys" Then Debug.Print .Fields("PROCEDURE_NAME") & vbTab & .Fields("PROCEDURE_SCHEMA")
+        
+         .MoveNext
+      Loop
+   End With
+End If
+
+   'gCnn.Close
+   Set gCnn = Nothing
+
+extSb:
+RcrdStClnUp (rstList)
+
+Exit Sub
+
+ADOErr:
+'Call SQLserver_ADO_Error_Message(Err.Description)
+MsgBox Err.Description, vbCritical, "Error"
+Resume extSb
+End Sub
+
+Public Sub GetSchema(table As String) 'get table details
+On Error GoTo ADOErr
+Call SetGlobalConnection
+
+Set mcmd = New ADODB.Command
+Dim rstList As ADODB.Recordset
+
+gCnn.Open
+
+'open new record so detail appears correctly
+  ' Open the tables schema rowset.
+   Set rstList = gCnn.OpenSchema(adSchemaColumns)
+
+   ' Loop through the results and print the
+   ' names and types in the Immediate pane.
+   With rstList
+   Debug.Print table
+      Do While Not .EOF
+            If .Fields("TABLE_NAME") = table Then Debug.Print .Fields("COLUMN_NAME")
+        
+         .MoveNext
+      Loop
+   End With
+   rstList.Close
+   Set rstList = Nothing
+   'gCnn.Close
+   Set gCnn = Nothing
+Exit Sub
+
+ADOErr:
+Call SQLserver_ADO_Error_Message(Err.Description)
+If Not rstList Is Nothing Then
+    If rstList.State = 1 Then rstList.Close
+    Set rstList = Nothing
+End If
+
+End Sub

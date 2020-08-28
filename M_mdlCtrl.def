@@ -1,0 +1,96 @@
+Option Compare Database
+Option Explicit
+
+
+'------------------------------------ CONTROL VALIDITY ------------------------------------ CONTROL VALIDITY ------------------------------------ CONTROL VALIDITY ------------------------------------ CONTROL VALIDITY ------------------------------------
+
+
+'---- Date-spans: put in BeforeUpdate ( Cancel = txtDt_Pair_IsVld(...) )
+Public Function txtDt_Pair_IsVld(txtDtStrt As TextBox, txtDtEnd As TextBox, blnCallStrt) As Boolean
+    'If (one of the dates is Null), it's fine; return True.
+    If (IsNull(txtDtStrt) Or IsNull(txtDtEnd)) = True Then
+        txtDt_Pair_IsVld = True
+        Exit Function
+    End If
+    
+    'Else, check if start-date is on or before before end-date.
+    txtDt_Pair_IsVld = (txtDtStrt <= txtDtEnd) '<-- The return value; could be either True or False.
+    
+    'If (it's not valid), there's an issue; display a message.
+    If txtDt_Pair_IsVld = False Then
+        MsgBox IIf(blnCallStrt, "'From'", "'To'") & " date must be on or " & IIf(blnCallStrt, "before 'To'", "after 'From'") & " date.", vbExclamation, "Invalid date-span"
+    End If
+End Function
+
+
+'------------------------------------ GROUPS OF CONTROLS ------------------------------------ GROUPS OF CONTROLS ------------------------------------ GROUPS OF CONTROLS ------------------------------------ GROUPS OF CONTROLS ------------------------------------
+
+
+'Set several controls enabled/disabled.
+Public Sub SetEnbldArr(blnEnbl As Boolean, ParamArray arrCtrls() As Variant)
+    Dim arrCtrls_arg() As Variant 'Just so that arrCtrls() can be passed as a parameter.
+    arrCtrls_arg = arrCtrls
+    Call SetPrprtyArr("Enabled", blnEnbl, arrCtrls_arg)
+End Sub
+
+
+'Set several controls visible/invisible.
+Public Sub SetVsblArr(blnEnbl As Boolean, ParamArray arrCtrls() As Variant)
+    Dim arrCtrls_arg() As Variant 'Just so that arrCtrls() can be passed as a parameter.
+    arrCtrls_arg = arrCtrls
+    Call SetPrprtyArr("Visible", blnEnbl, arrCtrls_arg)
+End Sub
+
+
+'Set several controls locked/unlocked.
+Public Sub SetLckdArr(blnLck As Boolean, ParamArray arrCtrls() As Variant)
+    Dim arrCtrls_arg() As Variant 'Just so that arrCtrls() can be passed as a parameter.
+    arrCtrls_arg = arrCtrls
+    Call SetPrprtyArr("Locked", blnLck, arrCtrls_arg)
+End Sub
+
+
+'Set all controls of a certain type [ctrlTyp] enabled/disabled.
+Public Sub SetEnbldTyp(blnEnbl As Boolean, frm As Form, ctrlTyp As Variant)
+    Dim ctrl As Control 'The control-reference
+    
+    'For (each control), set enabled/disabled.
+    For Each ctrl In frm.Controls
+        If ctrl.ControlType = ctrlTyp Then ctrl.Enabled = blnEnbl
+    Next
+End Sub
+
+
+'Set all controls of a certain type [ctrlTyp] locked/unlocked.
+Public Sub SetLckdTyp(blnLckd As Boolean, frm As Form, ctrlTyp As Variant)
+    Dim ctrl As Control 'The control-reference
+    
+    'For (each control), set locked/unlocked.
+    For Each ctrl In frm.Controls
+        If ctrl.ControlType = ctrlTyp Then ctrl.Locked = blnLckd
+    Next
+End Sub
+
+
+'Set a given property as True/False for several controls.
+Private Sub SetPrprtyArr(strPrprtyNm As String, varVl As Variant, arrCtrls() As Variant)
+    Dim ctrl As Control 'The control-reference
+    Dim intLp As Integer 'The loop-iterator
+    
+    'For (each control), set the property [strPrprtyNm] to the value [varVl].
+    For intLp = LBound(arrCtrls) To UBound(arrCtrls)
+        Set ctrl = arrCtrls(intLp)
+        ctrl.Properties(strPrprtyNm) = varVl
+    Next
+End Sub
+
+
+'For all controls of a certain type [ctrlTyp], sets a given property.
+Public Sub SetPrprtyTyp(strPrprtyNm As String, varVl As Variant, frm As Form, ctrlTyp As Variant)
+    Dim ctrl As Control 'The control-reference
+    
+    'For (each control), set locked/unlocked.
+    For Each ctrl In frm.Controls
+        If ctrl.ControlType = ctrlTyp Then ctrl.Properties(strPrprtyNm) = varVl
+    Next
+End Sub

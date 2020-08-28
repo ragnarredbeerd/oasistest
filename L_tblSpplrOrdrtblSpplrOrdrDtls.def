@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<Relation>
+  <Name value="tblSpplrOrdrtblSpplrOrdrDtls"/>
+  <Table value="tblSpplrOrdr"/>
+  <ForeignTable value="tblSpplrOrdrDtls"/>
+  <Attributes value="0"/>
+  <PartialReplica value="false"/>
+  <Fields>
+    <Field_0 name="SpplrOrdrID" foreignname="SpplrOrdrIDfk"/>
+  </Fields>
+</Relation>
