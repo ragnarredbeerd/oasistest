@@ -1,0 +1,97 @@
+Option Compare Database
+Option Explicit
+
+Public Const gcstrProvider As String = "Provider=SQLNCLI11"
+'Public Const gcstrBEPATH As String = "Data Source=192.168.1.105;Initial Catalog=Active_Energy_Solar;User ID=sa;Password=One2Three"
+Public Const gcstrBEPATH As String = "Data Source=64.202.189.196;Initial Catalog=Active_Energy_Solar;User ID=hkK87eG9YJZh;Password=KZsb999EZVSjuo"
+
+Public Const gcstrErrrMssg As String = "A critical error has occured while attempting to connect to the back end database." & vbCr & vbCr & "This application will close automatically when you click ''OK''. Re-open the application and attempt to open this form again. If the problem persists, contact the database administrator to have this problem resolved."
+Public Const gcstrClntSrvrErrrMssg As String = "The client / server tables are out of snyc. This may be due to a newer version of the software being released. Contact the administrator or Advanced Database Solutions to have this problem resolved."
+Public Const gcstrClntSrvrErrrMssgTtl As String = "Client / Server Error"
+Public gCnn As ADODB.Connection
+
+Public Sub SetGlobalConnection()
+Set gCnn = New ADODB.Connection
+gCnn.ConnectionString = gcstrProvider & ";" & gcstrBEPATH
+gCnn.CursorLocation = adUseServer
+gCnn.Mode = adModeReadWrite
+End Sub
+
+Public Function GetGlobalConnection() As ADODB.Connection
+Dim mCnn As ADODB.Connection
+Set mCnn = New ADODB.Connection
+
+mCnn.ConnectionString = gcstrProvider & ";" & gcstrBEPATH
+mCnn.CursorLocation = adUseServer
+mCnn.Mode = adModeReadWrite
+mCnn.Open
+
+Set GetGlobalConnection = mCnn
+
+mCnn.Close
+Set mCnn = Nothing
+
+End Function
+
+Public Sub SQLserver_ADO_Error_Message(SQLSrvrErrr As String)
+Dim strErrrMssg As String
+Dim strErrrMssg2 As String
+
+'locking violation
+If SQLSrvrErrr = "Row cannot be located for updating. Some values may have been changed since it was last read." Then
+strErrrMssg = "Another user was updating the same record that you were. Their update was saved and your update was not saved. If the record does not auto-refresh, you must refresh the record and redo your changes."
+strErrrMssg2 = "The record was not updated in the system."
+
+'UNIQUE INDEX constraint
+ElseIf Left(SQLSrvrErrr, 41) = "Cannot insert duplicate key row in object" Then 'THE PROBLEM IS HERE
+'strErrrMssg = Mid(SQLSrvrErrr, (InStr(1, SQLSrvrErrr, "with unique index ", vbTextCompare) + 19), (InStr(1, SQLSrvrErrr, "The duplicate key value", vbTextCompare) - 3) - (InStr(1, SQLSrvrErrr, "with unique index ", vbTextCompare) + 19))
+strErrrMssg = Mid(SQLSrvrErrr, (InStr(1, SQLSrvrErrr, "with unique index ", vbTextCompare) + 19), Len(SQLSrvrErrr) - (InStr(1, SQLSrvrErrr, "with unique index ", vbTextCompare) + 20))
+strErrrMssg2 = "The record was not added and/or updated in the system."
+
+'UNIQUE KEY constraint
+ElseIf Left(SQLSrvrErrr, 35) = "Violation of UNIQUE KEY constraint " Then
+strErrrMssg = Mid(SQLSrvrErrr, 37, (InStr(1, SQLSrvrErrr, ". Cannot insert duplicate key in object", vbTextCompare) - 38))
+strErrrMssg2 = "The record was not added and/or updated in the system."
+
+'PRIMARY KEY constraint
+ElseIf Left(SQLSrvrErrr, 36) = "Violation of PRIMARY KEY constraint " Then
+'MsgBox "Violation of PRIMARY KEY"
+strErrrMssg = Mid(SQLSrvrErrr, 38, (InStr(1, SQLSrvrErrr, ". Cannot insert duplicate key in object", vbTextCompare) - 39))
+strErrrMssg2 = "The record was not added and/or updated in the system."
+
+'CHECK constraint
+ElseIf Left(SQLSrvrErrr, 58) = "The UPDATE statement conflicted with the CHECK constraint " Then
+strErrrMssg = Mid(SQLSrvrErrr, 60, (InStr(1, SQLSrvrErrr, ". The conflict occurred in database", vbTextCompare) - 61))
+strErrrMssg2 = "The record was not updated in the system."
+
+'CHECK constraint
+ElseIf Left(SQLSrvrErrr, 58) = "The INSERT statement conflicted with the CHECK constraint " Then
+strErrrMssg = Mid(SQLSrvrErrr, 60, (InStr(1, SQLSrvrErrr, ". The conflict occurred in database", vbTextCompare) - 61))
+strErrrMssg2 = "The record was not added to the system."
+
+'REFERENCE (relationship) constraint
+ElseIf Left(SQLSrvrErrr, 62) = "The DELETE statement conflicted with the REFERENCE constraint " Or Left(SQLSrvrErrr, 62) = "The UPDATE statement conflicted with the REFERENCE constraint " Then
+strErrrMssg = Mid(SQLSrvrErrr, 64, (InStr(1, SQLSrvrErrr, ". The conflict occurred in database", vbTextCompare) - 65))
+strErrrMssg2 = "The record was not deleted from the system."
+
+ElseIf Mid(SQLSrvrErrr, 32, 21) = "Error Locating Server" Then
+strErrrMssg = "Unable to connect to server."
+strErrrMssg2 = "Critical Error"
+
+'other
+Else
+strErrrMssg = SQLSrvrErrr
+strErrrMssg2 = "Database Error"
+End If
+
+'the simplified error message has some underscore that need to be replaced
+strErrrMssg = Replace(strErrrMssg, "_____", " .") '5 underscores = space and period
+strErrrMssg = Replace(strErrrMssg, "____", ". ") '4 underscores = period and space
+strErrrMssg = Replace(strErrrMssg, "___", "/") '3 underscores = /
+strErrrMssg = Replace(strErrrMssg, "__", ".") '2 underscores = period
+strErrrMssg = Replace(strErrrMssg, "_", " ") '1 underscores = space
+
+MsgBox strErrrMssg, vbCritical, strErrrMssg2
+If Not gCnn Is Nothing Then Set gCnn = Nothing
+
+End Sub
