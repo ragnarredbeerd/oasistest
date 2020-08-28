@@ -1,0 +1,465 @@
+Option Compare Database
+Option Explicit
+Private mcmd As ADODB.Command
+Public gclr As String
+
+Public Sub PpltFrm(MyForm As String)
+
+'populates all controls on a form with recordsets if the tag contains a query in its tag.
+'can work with a single parameter field following the query name after a ':'
+
+'WILL WORK
+'qryExmpl_slct
+'qryExmpl_slct,tag1,tag2
+'tag1,qryExmpl_slct:txtParameterfield,    tag2
+
+'WONT WORK CORRECTLY
+'tag1,qryExmpl_slct, qryExmpl2_slct
+
+Dim ctrl As Control
+
+Dim str As String
+
+Dim strSplt() As String
+
+Dim pos As Integer
+
+Dim intLp As Integer
+
+For Each ctrl In Forms(MyForm).Controls
+'gInt = 2
+
+str = Replace(ctrl.Tag, " ", "") 'remove whitespace from tag
+strSplt = Split(str, ",") 'split into sections based on commas
+'Debug.Print ctrl.Name
+
+    For intLp = 0 To UBound(strSplt)
+        
+        If strSplt(intLp) Like "sp*" Or strSplt(intLp) Like "qry*" Then
+        
+            pos = InStr(strSplt(intLp), ":")
+            
+                If pos > 0 Then
+                Dim Param As Variant
+                Dim strItm As String
+                
+                strItm = Right(strSplt(intLp), Len(strSplt(intLp)) - pos)
+                Param = Eval("forms!" & MyForm & "!" & strItm)
+                
+'                If strItm Like "g*" Or strItm Like "TempVars*" Then
+'                    Param = Eval(strItm)
+'
+'                Else
+'                    Param = Eval("forms!" & MyForm & "!" & strItm)
+'                End If
+'
+'                Dim ctlPrm As Control 'parameter control
+'                Set ctlPrm = Forms(MyForm).Controls(Right(strSplt(intLp), pos))
+                
+                Set ctrl.Recordset = ADOSetFetch(Left(strSplt(intLp), pos - 1), Param)
+                
+                Else
+                Set ctrl.Recordset = ADOSetFetch(strSplt(intLp))
+                End If
+            
+                
+            GoTo FndQry 'no need to loop after a query is found
+            
+        End If
+    Next
+    
+FndQry:
+Next ctrl
+
+End Sub
+
+Public Sub CnnDlt(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant)
+'Delete using connection object. Mostly for SQL, but can be used in access as well to delete records that you cant access with the form.
+'EX:
+'call cnnDlt("DELETE FROM tblExmple WHERE ID = " & txtExmpl)
+'OR cnndlt("spDltRcrd",txtExmpl)
+
+On Error GoTo ADOErr
+
+
+Dim mcmd As ADODB.Command
+Set mcmd = New ADODB.Command
+
+If Not IsMissing(Prm1) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+End If
+
+If Not IsMissing(Prm2) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+End If
+
+If Not IsMissing(Prm3) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+End If
+
+With mcmd
+        .CommandText = qry
+        If qry Like "DELETE*" Then
+        .CommandType = adCmdText
+        Else
+        .CommandType = adCmdStoredProc
+        End If
+        .ActiveConnection = CurrentProject.Connection
+        .Execute
+End With
+
+extSb:
+
+Set mcmd = Nothing
+Exit Sub
+
+ADOErr:
+Call SQLserver_ADO_Error_Message(Err.Description)
+Resume extSb
+End Sub
+
+Public Function ADOSetFetch(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant) As ADODB.Recordset
+'retrieve a recordset using a query
+'EX:
+'Set form.recordset = ADOSetFetch("SELECT * FROM tblExmpl WHERE ID = " & txtId_ubnd)
+'OR set lstOrdrs.recordset = ADOSetFetch("qryOrdrslstbx_slct",txtId_ubnd)
+
+On Error GoTo ADOErr
+
+Dim mcmd As ADODB.Command
+Set mcmd = New ADODB.Command
+Dim Rst As ADODB.Recordset
+Set Rst = New ADODB.Recordset
+
+If Not IsMissing(Prm1) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+End If
+
+If Not IsMissing(Prm2) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+End If
+
+If Not IsMissing(Prm3) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+End If
+
+If Not IsMissing(Prm4) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+End If
+With mcmd
+        .CommandText = qry
+        If qry Like "SELECT*" Then
+        .CommandType = adCmdText
+        Else
+        .CommandType = adCmdStoredProc
+        End If
+        
+        .ActiveConnection = CurrentProject.Connection
+        Rst.CursorLocation = adUseClient
+        Rst.Open mcmd, , adOpenDynamic, adLockOptimistic
+        Set ADOSetFetch = Rst.Clone
+End With
+
+extSb:
+
+Call RcrdStClnUp(Rst)
+Exit Function
+
+ADOErr:
+Call SQLserver_ADO_Error_Message(Err.Description)
+Resume extSb
+End Function
+
+'Public Sub ADODlt(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant)
+'On Error GoTo Dlt_Err 'delete records. issues currently
+'Exit Sub
+'        If MsgBox("Would you like to delete this record?", vbYesNo, "Delete Item") = vbYes Then
+'        'run delete
+'        On Error GoTo Dlt_Err
+'
+'        Call SetGlobalConnection
+'CurrentProject.Connection.Open
+'
+'Dim mcmd As ADODB.Command
+'Set mcmd = New ADODB.Command
+'Dim Rst As ADODB.Recordset
+'Set Rst = New ADODB.Recordset
+'
+'If Not IsMissing(Prm1) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+'End If
+'
+'If Not IsMissing(Prm2) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+'End If
+'
+'If Not IsMissing(Prm3) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+'End If
+'
+'If Not IsMissing(Prm4) Then
+'mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+'End If
+'With mcmd
+'                .CommandText = qry
+'                .CommandType = adCmdStoredProc
+'                CurrentProject.Connection.Open
+'                .ActiveConnection = CurrentProject.Connection
+'                .Execute
+'        End With
+'        Set mcmd = Nothing
+'        Set CurrentProject.Connection = Nothing
+'End If
+'
+'
+'
+'Exit Sub
+'
+'Dlt_Err:
+'Set mcmd = Nothing
+'Call SQLserver_ADO_Error_Message(Err.Description)
+'End Sub
+
+Public Function ADOLookUp(qry As String, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant) As Variant
+On Error GoTo ADOErr
+'retrieve a specific value, essentially a dlookup. Mainly for sql, but runs faster than dlookup in code
+'uses the first field of the first record that matches the criteria
+'returns null on failed search
+'EX
+'intMxNmbr = ADOLookup("SELECT MAX(nmbrCnnctns) FROM tblPnls WHERE PnlID = " & txtID)
+'OR IntItmSz = ADOLookup("qryItmSz_slct", txtItmID)
+
+Dim mcmd As ADODB.Command
+Set mcmd = New ADODB.Command
+Dim Rst As ADODB.Recordset
+Set Rst = New ADODB.Recordset
+
+If Not IsMissing(Prm1) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+End If
+
+If Not IsMissing(Prm2) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+End If
+
+If Not IsMissing(Prm3) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+End If
+
+If Not IsMissing(Prm4) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+End If
+
+With mcmd
+        .CommandText = qry
+        .CommandType = adCmdStoredProc
+        .ActiveConnection = CurrentProject.Connection
+        Rst.CursorLocation = adUseClient
+        Rst.Open mcmd, , adOpenStatic, adLockOptimistic
+        ADOLookUp = IIf(Rst.EOF = True, Null, Rst.Fields(0))
+End With
+
+extSb:
+
+Call RcrdStClnUp(Rst)
+Exit Function
+
+ADOErr:
+Call SQLserver_ADO_Error_Message(Err.Description)
+Resume extSb
+End Function
+
+Public Sub SourceADO(qry As String, ctl As Control, Optional Prm1 As Variant, Optional Prm2 As Variant, Optional Prm3 As Variant, Optional Prm4 As Variant)
+'attaches a recordset based on query to the provided control. Less functional than ADO Set fetch, but some things may still use
+'EX
+'call sourceADO("qryItmsLst_slct",lstItms,txtStrID)
+'OR call sourceADO("SELECT * FROM tblItms WHERE StrIDfk = " & txtStrID, lstItms)
+
+On Error GoTo ADOErr 'populate control
+Dim Rst As ADODB.Recordset
+Set Rst = New ADODB.Recordset
+Rst.CursorLocation = adUseClient
+
+Dim mcmd As ADODB.Command
+Set mcmd = New ADODB.Command
+
+If qry Like "SELECT*" Then
+mcmd.CommandType = adCmdText
+Else
+mcmd.CommandType = adCmdStoredProc
+End If
+
+mcmd.CommandText = qry
+mcmd.ActiveConnection = CurrentProject.Connection
+
+If Not IsMissing(Prm1) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param1", GetParameterType(Prm1), adParamInput, 255, Prm1)
+End If
+
+If Not IsMissing(Prm2) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param2", GetParameterType(Prm2), adParamInput, 255, Prm2)
+End If
+
+If Not IsMissing(Prm3) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param3", GetParameterType(Prm3), adParamInput, 255, Prm3)
+End If
+
+If Not IsMissing(Prm4) Then
+mcmd.Parameters.Append mcmd.CreateParameter("@Param4", GetParameterType(Prm4), adParamInput, 255, Prm4)
+End If
+
+Rst.Open mcmd, , adOpenStatic, adLockBatchOptimistic
+
+Set Rst.ActiveConnection = Nothing
+
+Set ctl.Recordset = Rst.Clone
+
+extSb:
+
+Call RcrdStClnUp(Rst)
+Exit Sub
+
+ADOErr:
+Call SQLserver_ADO_Error_Message(Err.Description)
+Resume extSb
+End Sub
+
+'-----RECORDSET CLEAN UP--------
+
+Public Sub RcrdStClnUp(RS1 As ADODB.Recordset, Optional RS2 As ADODB.Recordset, Optional RS3 As ADODB.Recordset, Optional RS4 As ADODB.Recordset, Optional RS5 As ADODB.Recordset)
+'simple, place in an "extSb: " and add recordsets as arguements. closes and sets to nothing if they arent already.
+
+On Error GoTo ClnUpErr
+
+If Not RS1 Is Nothing Then
+    If RS1.State = 1 Then RS1.Close
+    Set RS1 = Nothing
+End If
+
+If IsMissing(RS2) = False Then
+If Not RS2 Is Nothing Then
+    If RS2.State = 1 Then RS2.Close
+    Set RS2 = Nothing
+End If
+End If
+
+If IsMissing(RS3) = False Then
+If Not RS3 Is Nothing Then
+    If RS3.State = 1 Then RS3.Close
+    Set RS3 = Nothing
+End If
+End If
+
+If IsMissing(RS4) = False Then
+If Not RS4 Is Nothing Then
+    If RS4.State = 1 Then RS4.Close
+    Set RS4 = Nothing
+End If
+End If
+
+If IsMissing(RS5) = False Then
+If Not RS5 Is Nothing Then
+    If RS5.State = 1 Then RS5.Close
+    Set RS5 = Nothing
+End If
+End If
+
+Exit Sub
+ClnUpErr:
+MsgBox Err.Description, , "Error"
+End Sub
+
+'------------MISCELLANEOUS--------------
+
+Public Function PullSQL(qryNm As String) As String 'pulls definition out of a query
+
+Dim qry As QueryDef
+Set qry = CurrentDb.QueryDefs(qryNm)
+PullSQL = qry.SQL
+
+End Function
+
+
+Public Function GetParameterType(parameter As Variant) As ADODB.DataTypeEnum 'datatype
+ 
+    Select Case VarType(parameter)
+        Case vbEmpty            '    0  Empty (uninitialized).
+            GoTo UnsupportedType
+        Case vbNull             '    1  Null (no valid data).
+            GoTo UnsupportedType
+        Case vbInteger          '    2  Integer.
+            GetParameterType = adInteger
+        Case vbLong             '    3  Long integer.
+            GetParameterType = adInteger
+        Case vbSingle           '    4  Single-precision floating-point number.
+            GetParameterType = adSingle
+        Case vbDouble           '    5  Double-precision floating-point number.
+            GetParameterType = adDouble
+        Case vbCurrency         '    6  Currency.
+            GetParameterType = adDecimal
+        Case vbDate             '    7  Date.
+            GetParameterType = adDate
+        Case vbString           '    8  String.
+            GetParameterType = adVarChar 'Assumes strings are not long
+        Case vbObject           '    9  Object.
+            GoTo UnsupportedType
+        Case vbError            '   10  Error.
+            GoTo UnsupportedType
+        Case vbBoolean          '   11  Boolean.
+            GetParameterType = adBoolean
+        Case vbVariant          '   12  Variant (used only with arrays of variants).
+            GoTo UnsupportedType
+        Case vbDataObject       '   13  A data access object.
+            GoTo UnsupportedType
+        Case vbDecimal          '   14  Decimal.
+            GetParameterType = adDecimal
+        Case vbByte             '   17  Byte.
+            GetParameterType = adChar
+        'Case LongLong           '   20  LongLong integer (Valid on 64-bit platforms only).
+            'GetParameterType = adBigInt
+        Case vbUserDefinedType  '   36  Variants that contain user-defined types.
+            GoTo UnsupportedType
+        Case vbArray            '   8192  Array.
+            GoTo UnsupportedType
+        Case Else               '   For example array + variant = 8204
+            GoTo UnsupportedType
+    End Select
+    Exit Function
+UnsupportedType:
+    'MsgBox "Unsupported input parameter going to SQL statement!"
+    'Stop
+    'Prod: text will likely work
+    GetParameterType = adVarWChar
+End Function
+
+Public Function GetListBoxSum(frmName As Form, lstName As ListBox, intColumn As Integer) As Currency
+'sum all values in a column of a listbox
+    Dim i As Integer
+    Dim j As Integer
+    Dim ctl As Control
+
+    Set ctl = Forms![frmName]![lstName]
+    j = ctl.ListCount - 1
+
+    GetListBoxSum = 0
+    For i = 1 To j
+        GetListBoxSum = GetListBoxSum + ctl.Column(intColumn, i)
+    Next i
+
+End Function
+
+Public Function GetListBoxSumRpt(rpt As Report, lstName As ListBox, intColumn As Integer) As Currency
+'same as above but for reports
+    Dim i As Integer
+    Dim j As Integer
+    Dim ctl As Control
+
+    Set ctl = Reports![rpt]![lstName]
+    j = ctl.ListCount - 1
+
+    GetListBoxSumRpt = 0
+    For i = 1 To j
+        GetListBoxSumRpt = GetListBoxSumRpt + ctl.Column(intColumn, i)
+    Next i
+
+End Function

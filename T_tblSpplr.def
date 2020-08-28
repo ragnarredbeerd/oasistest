@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TableDef name="tblSpplr" foreign="False">
+  <Properties/>
+  <SQL>CREATE TABLE [tblSpplr] (
+[SpplrID] AUTOINCREMENT,
+[SpplrNm] TEXT (255),
+[SpplrAddrss] TEXT (255),
+[Cty] TEXT (255),
+[Stt] TEXT (2),
+[ZP] TEXT (13),
+[Phn] TEXT (12),
+[PhnExt] TEXT (4),
+[PhnAlt] TEXT (12),
+[Fx] TEXT (255),
+[Dscntnd] BIT DEFAULT No,
+[Nts] TEXT (255),
+[TxRt] DOUBLE DEFAULT 0,
+[PrmryCntctIDfk] LONG DEFAULT 0);</SQL>
+  <Attributes value="0">
+    <dbHiddenObject value="False"/>
+    <dbAttachExclusive value="False"/>
+    <dbAttachSavePWD value="False"/>
+    <dbAttachedODBC value="False"/>
+    <dbAttachedTable value="False"/>
+    <dbSystemObject value="False"/>
+  </Attributes>
+  <FieldDefs>
+    <Field_0 name="SpplrID">
+      <Value name="Value" type="4"/>
+      <Attributes name="Attributes" type="4" value="17"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="4"/>
+      <Name name="Name" type="12" value="SpplrID"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="0"/>
+      <Size name="Size" type="4" value="4"/>
+      <SourceField name="SourceField" type="12" value="SpplrID"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value=""/>
+      <ValidationText name="ValidationText" type="12" value=""/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="False"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="4"/>
+      <VisibleValue name="VisibleValue" type="4"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Description name="Description" type="10" value="Supplier ID"/>
+    </Field_0>
+    <Field_1 name="SpplrNm">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="SpplrNm"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="1"/>
+      <Size name="Size" type="4" value="255"/>
+      <SourceField name="SourceField" type="12" value="SpplrNm"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Not Null And &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="Company name is required and cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier Name"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Caption name="Caption" type="12" value="Supplier"/>
+    </Field_1>
+    <Field_2 name="SpplrAddrss">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="SpplrAddrss"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="2"/>
+      <Size name="Size" type="4" value="255"/>
+      <SourceField name="SourceField" type="12" value="SpplrAddrss"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="The address cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier address"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Caption name="Caption" type="12" value="Address"/>
+    </Field_2>
+    <Field_3 name="Cty">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="Cty"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="3"/>
+      <Size name="Size" type="4" value="255"/>
+      <SourceField name="SourceField" type="12" value="Cty"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="City cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier city"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Caption name="Caption" type="12" value="City"/>
+    </Field_3>
+    <Field_4 name="Stt">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="Stt"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="4"/>
+      <Size name="Size" type="4" value="2"/>
+      <SourceField name="SourceField" type="12" value="Stt"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="State cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier state"/>
+      <DisplayControl name="DisplayControl" type="3" value="111"/>
+      <RowSourceType name="RowSourceType" type="10" value="Value List"/>
+      <RowSource name="RowSource" type="12" value="AK;AL;AR;AZ;CA;CO;CT;DE;FL;GA;HI;IA;ID;IL;IN;KS;KT;LA;MA;MD;ME;MI;MN;MO;MS;MT;NC;ND;NE;NH;NJ;NM;NV;NY;OH;OK;OR;PA;RI;SC;SD;TN;TX;UT;VA;VT;WA;WI;WV;WY"/>
+      <BoundColumn name="BoundColumn" type="3" value="1"/>
+      <ColumnCount name="ColumnCount" type="3" value="1"/>
+      <ColumnHeads name="ColumnHeads" type="1" value="False"/>
+      <ListRows name="ListRows" type="3" value="16"/>
+      <ListWidth name="ListWidth" type="10" value="0twip"/>
+      <LimitToList name="LimitToList" type="1" value="True"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <AllowMultipleValues name="AllowMultipleValues" type="1" value="False"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AllowValueListEdits name="AllowValueListEdits" type="1" value="False"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ShowOnlyRowSourceValues name="ShowOnlyRowSourceValues" type="1" value="False"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Caption name="Caption" type="12" value="State"/>
+    </Field_4>
+    <Field_5 name="ZP">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="ZP"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="5"/>
+      <Size name="Size" type="4" value="13"/>
+      <SourceField name="SourceField" type="12" value="ZP"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="Zip Code cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier zip"/>
+      <InputMask name="InputMask" type="10" value="00000\-9999;;_"/>
+      <Caption name="Caption" type="12" value="Zip Code"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+    </Field_5>
+    <Field_6 name="Phn">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="Phn"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="6"/>
+      <Size name="Size" type="4" value="12"/>
+      <SourceField name="SourceField" type="12" value="Phn"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="Phone numbercannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier Phone"/>
+      <InputMask name="InputMask" type="10" value="!\(999&quot;) &quot;000\-0000;;_"/>
+      <Caption name="Caption" type="12" value="Phone Number"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+    </Field_6>
+    <Field_7 name="PhnExt">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="PhnExt"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="7"/>
+      <Size name="Size" type="4" value="4"/>
+      <SourceField name="SourceField" type="12" value="PhnExt"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="Extension cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier phone extension"/>
+      <Caption name="Caption" type="12" value="Extension"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="False"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <InputMask name="InputMask" type="10" value="99999;;_"/>
+    </Field_7>
+    <Field_8 name="PhnAlt">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="PhnAlt"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="8"/>
+      <Size name="Size" type="4" value="12"/>
+      <SourceField name="SourceField" type="12" value="PhnAlt"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="Alternate phone number cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier alt phone"/>
+      <InputMask name="InputMask" type="10" value="!\(999&quot;) &quot;000\-0000;;_"/>
+      <Caption name="Caption" type="12" value="Alternate Number"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+    </Field_8>
+    <Field_9 name="Fx">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="Fx"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="9"/>
+      <Size name="Size" type="4" value="255"/>
+      <SourceField name="SourceField" type="12" value="Fx"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="Is Null Or &lt;&gt;&quot;&quot;"/>
+      <ValidationText name="ValidationText" type="12" value="Fax cannot be a zero-length string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Supplier Fax"/>
+      <InputMask name="InputMask" type="10" value="!\(999&quot;) &quot;000\-0000;;_"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Caption name="Caption" type="12" value="Fax"/>
+    </Field_9>
+    <Field_10 name="Dscntnd">
+      <Value name="Value" type="1"/>
+      <Attributes name="Attributes" type="4" value="1"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="1"/>
+      <Name name="Name" type="12" value="Dscntnd"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="10"/>
+      <Size name="Size" type="4" value="1"/>
+      <SourceField name="SourceField" type="12" value="Dscntnd"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value="No"/>
+      <ValidationRule name="ValidationRule" type="12" value=""/>
+      <ValidationText name="ValidationText" type="12" value=""/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="False"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="1"/>
+      <VisibleValue name="VisibleValue" type="1"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Discontinued?"/>
+      <Format name="Format" type="10" value="Yes/No"/>
+      <DisplayControl name="DisplayControl" type="3" value="106"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+      <Caption name="Caption" type="12" value="Discontinued"/>
+    </Field_10>
+    <Field_11 name="Nts">
+      <Value name="Value" type="10"/>
+      <Attributes name="Attributes" type="4" value="2"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="10"/>
+      <Name name="Name" type="12" value="Nts"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="11"/>
+      <Size name="Size" type="4" value="255"/>
+      <SourceField name="SourceField" type="12" value="Nts"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value=""/>
+      <ValidationRule name="ValidationRule" type="12" value="&lt;&gt;''"/>
+      <ValidationText name="ValidationText" type="12" value="Notes cannot be an empty string."/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="True"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="10"/>
+      <VisibleValue name="VisibleValue" type="10"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="Notes"/>
+      <Caption name="Caption" type="12" value="Notes"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <IMEMode name="IMEMode" type="2" value="0"/>
+      <IMESentenceMode name="IMESentenceMode" type="2" value="3"/>
+      <UnicodeCompression name="UnicodeCompression" type="1" value="True"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+    </Field_11>
+    <Field_12 name="TxRt">
+      <Value name="Value" type="7"/>
+      <Attributes name="Attributes" type="4" value="1"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="7"/>
+      <Name name="Name" type="12" value="TxRt"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="12"/>
+      <Size name="Size" type="4" value="8"/>
+      <SourceField name="SourceField" type="12" value="TxRt"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value="0"/>
+      <ValidationRule name="ValidationRule" type="12" value=""/>
+      <ValidationText name="ValidationText" type="12" value=""/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="False"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="7"/>
+      <VisibleValue name="VisibleValue" type="7"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="tax rate"/>
+      <Format name="Format" type="10" value="0.00####%"/>
+      <DecimalPlaces name="DecimalPlaces" type="2" value="255"/>
+      <Caption name="Caption" type="12" value="Tax Rate"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+    </Field_12>
+    <Field_13 name="PrmryCntctIDfk">
+      <Value name="Value" type="4"/>
+      <Attributes name="Attributes" type="4" value="1"/>
+      <CollatingOrder name="CollatingOrder" type="3" value="1033"/>
+      <Type name="Type" type="3" value="4"/>
+      <Name name="Name" type="12" value="PrmryCntctIDfk"/>
+      <OrdinalPosition name="OrdinalPosition" type="3" value="13"/>
+      <Size name="Size" type="4" value="4"/>
+      <SourceField name="SourceField" type="12" value="PrmryCntctIDfk"/>
+      <SourceTable name="SourceTable" type="12" value="tblSpplr"/>
+      <ValidateOnSet name="ValidateOnSet" type="1"/>
+      <DataUpdatable name="DataUpdatable" type="1" value="False"/>
+      <ForeignName name="ForeignName" type="12"/>
+      <DefaultValue name="DefaultValue" type="12" value="0"/>
+      <ValidationRule name="ValidationRule" type="12" value="&lt;&gt;''"/>
+      <ValidationText name="ValidationText" type="12" value="Contact Name cannot be an empty string"/>
+      <Required name="Required" type="1" value="False"/>
+      <AllowZeroLength name="AllowZeroLength" type="1" value="False"/>
+      <AppendOnly name="AppendOnly" type="1" value="False"/>
+      <Expression name="Expression" type="12" value=""/>
+      <FieldSize name="FieldSize" type="4"/>
+      <OriginalValue name="OriginalValue" type="4"/>
+      <VisibleValue name="VisibleValue" type="4"/>
+      <ColumnWidth name="ColumnWidth" type="3" value="-1"/>
+      <ColumnOrder name="ColumnOrder" type="3" value="0"/>
+      <ColumnHidden name="ColumnHidden" type="1" value="False"/>
+      <Description name="Description" type="10" value="ID of Primary Contact"/>
+      <DecimalPlaces name="DecimalPlaces" type="2" value="255"/>
+      <Caption name="Caption" type="12" value="Contact Name"/>
+      <DisplayControl name="DisplayControl" type="3" value="109"/>
+      <TextAlign name="TextAlign" type="2" value="0"/>
+      <AggregateType name="AggregateType" type="4" value="-1"/>
+      <ResultType name="ResultType" type="2" value="0"/>
+      <CurrencyLCID name="CurrencyLCID" type="4" value="0"/>
+    </Field_13>
+  </FieldDefs>
+  <Indexes>
+    <Index_0 name="idxDscntnd">
+      <Name value="idxDscntnd"/>
+      <Unique value="false"/>
+      <Clustered value="false"/>
+      <Primary value="false"/>
+      <Foreign value="false"/>
+      <Required value="false"/>
+      <IgnoreNulls value="false"/>
+      <Fields>
+        <FieldNames value="-Dscntnd"/>
+      </Fields>
+    </Index_0>
+    <Index_1 name="idxSpplrIDpk">
+      <Name value="idxSpplrIDpk"/>
+      <Unique value="true"/>
+      <Clustered value="false"/>
+      <Primary value="true"/>
+      <Foreign value="false"/>
+      <Required value="true"/>
+      <IgnoreNulls value="false"/>
+      <Fields>
+        <FieldNames value="-SpplrID"/>
+      </Fields>
+    </Index_1>
+    <Index_2 name="idxSpplrNm">
+      <Name value="idxSpplrNm"/>
+      <Unique value="false"/>
+      <Clustered value="false"/>
+      <Primary value="false"/>
+      <Foreign value="false"/>
+      <Required value="false"/>
+      <IgnoreNulls value="false"/>
+      <Fields>
+        <FieldNames value="-SpplrNm"/>
+      </Fields>
+    </Index_2>
+    <Index_3 name="idxSt">
+      <Name value="idxSt"/>
+      <Unique value="false"/>
+      <Clustered value="false"/>
+      <Primary value="false"/>
+      <Foreign value="false"/>
+      <Required value="false"/>
+      <IgnoreNulls value="false"/>
+      <Fields>
+        <FieldNames value="-Stt"/>
+      </Fields>
+    </Index_3>
+    <Index_4 name="idxTxRt">
+      <Name value="idxTxRt"/>
+      <Unique value="false"/>
+      <Clustered value="false"/>
+      <Primary value="false"/>
+      <Foreign value="false"/>
+      <Required value="false"/>
+      <IgnoreNulls value="false"/>
+      <Fields>
+        <FieldNames value="-TxRt"/>
+      </Fields>
+    </Index_4>
+  </Indexes>
+  <Rows>
+    <Row_1>
+      <field_0 name="SpplrID" binary="false" null="false" value="90"/>
+      <field_1 name="SpplrNm" binary="false" null="false">s</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">d</field_2>
+      <field_3 name="Cty" binary="false" null="false">d</field_3>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1212121212</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="true"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_1>
+    <Row_2>
+      <field_0 name="SpplrID" binary="false" null="false" value="88"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Moognoondan</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1231313311</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_2>
+    <Row_3>
+      <field_0 name="SpplrID" binary="false" null="false" value="87"/>
+      <field_1 name="SpplrNm" binary="false" null="false">yudutrdudtrd</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1432132132</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_3>
+    <Row_4>
+      <field_0 name="SpplrID" binary="false" null="false" value="86"/>
+      <field_1 name="SpplrNm" binary="false" null="false">john</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1233123123</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_4>
+    <Row_5>
+      <field_0 name="SpplrID" binary="false" null="false" value="85"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Jone's Bones</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">2spooky4me</field_2>
+      <field_3 name="Cty" binary="false" null="false">Spookytown</field_3>
+      <field_4 name="Stt" binary="false" null="false">MA</field_4>
+      <field_5 name="ZP" binary="false" null="false">123212344</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_5>
+    <Row_6>
+      <field_0 name="SpplrID" binary="false" null="false" value="84"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Amounts of Tortilla</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">443 Cornmeal st</field_2>
+      <field_3 name="Cty" binary="false" null="false">Sopapilla St</field_3>
+      <field_4 name="Stt" binary="false" null="false">CA</field_4>
+      <field_5 name="ZP" binary="false" null="false">776654322</field_5>
+      <field_6 name="Phn" binary="false" null="false">1231211222</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_6>
+    <Row_7>
+      <field_0 name="SpplrID" binary="false" null="false" value="83"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Fext Tormatting</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="false">ID</field_4>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1234421123</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_7>
+    <Row_8>
+      <field_0 name="SpplrID" binary="false" null="false" value="82"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Monestistan CoOp</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1232112321</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_8>
+    <Row_9>
+      <field_0 name="SpplrID" binary="false" null="false" value="81"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Hrongus</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">Modnu</field_2>
+      <field_3 name="Cty" binary="false" null="false">Earthtown</field_3>
+      <field_4 name="Stt" binary="false" null="false">AL</field_4>
+      <field_5 name="ZP" binary="false" null="false">12321</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_9>
+    <Row_10>
+      <field_0 name="SpplrID" binary="false" null="false" value="77"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Boonahnad</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">12455</field_2>
+      <field_3 name="Cty" binary="false" null="false">the Quad</field_3>
+      <field_4 name="Stt" binary="false" null="false">AL</field_4>
+      <field_5 name="ZP" binary="false" null="false">332221111</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_10>
+    <Row_11>
+      <field_0 name="SpplrID" binary="false" null="false" value="76"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Gork's Fork</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">5500 Shootah</field_2>
+      <field_3 name="Cty" binary="false" null="false">Ork</field_3>
+      <field_4 name="Stt" binary="false" null="false">HI</field_4>
+      <field_5 name="ZP" binary="false" null="false">443221111</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_11>
+    <Row_12>
+      <field_0 name="SpplrID" binary="false" null="false" value="75"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Mork's Pork</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">123</field_2>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">2244122222</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_12>
+    <Row_13>
+      <field_0 name="SpplrID" binary="false" null="false" value="73"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Smorgen Smores Smorgasbord</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">fgjfvbnjfj</field_2>
+      <field_3 name="Cty" binary="false" null="false">All of them</field_3>
+      <field_4 name="Stt" binary="false" null="false">AR</field_4>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1123211232</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_13>
+    <Row_14>
+      <field_0 name="SpplrID" binary="false" null="false" value="72"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Bonk</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">123 Donkus</field_2>
+      <field_3 name="Cty" binary="false" null="false">123</field_3>
+      <field_4 name="Stt" binary="false" null="false">CA</field_4>
+      <field_5 name="ZP" binary="false" null="false">14222</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_14>
+    <Row_15>
+      <field_0 name="SpplrID" binary="false" null="false" value="69"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Ayyy Lmao</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">420 Yeet Street</field_2>
+      <field_3 name="Cty" binary="false" null="false">Noiceville</field_3>
+      <field_4 name="Stt" binary="false" null="false">CO</field_4>
+      <field_5 name="ZP" binary="false" null="false">42000</field_5>
+      <field_6 name="Phn" binary="false" null="false">1234123442</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_15>
+    <Row_16>
+      <field_0 name="SpplrID" binary="false" null="false" value="68"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Jaaag</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1232122222</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_16>
+    <Row_17>
+      <field_0 name="SpplrID" binary="false" null="false" value="67"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Joog</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1241222222</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_17>
+    <Row_18>
+      <field_0 name="SpplrID" binary="false" null="false" value="65"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Bmericant</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="false">Freedont</field_3>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="false">12321</field_5>
+      <field_6 name="Phn" binary="false" null="false">2233333333</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="false" value="0.081"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_18>
+    <Row_19>
+      <field_0 name="SpplrID" binary="false" null="false" value="61"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Brigtown Bootery</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="false">Bootentoon</field_3>
+      <field_4 name="Stt" binary="false" null="false">CO</field_4>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1234412512</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_19>
+    <Row_20>
+      <field_0 name="SpplrID" binary="false" null="false" value="60"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Conga</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">Morgentooon</field_2>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1233441232</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_20>
+    <Row_21>
+      <field_0 name="SpplrID" binary="false" null="false" value="57"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Birkcent</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">55 N Sunset</field_2>
+      <field_3 name="Cty" binary="false" null="false">Hot place</field_3>
+      <field_4 name="Stt" binary="false" null="false">AZ</field_4>
+      <field_5 name="ZP" binary="false" null="false">111111111</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_21>
+    <Row_22>
+      <field_0 name="SpplrID" binary="false" null="false" value="56"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Jonk</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">Jonk</field_2>
+      <field_3 name="Cty" binary="false" null="false">JOnK</field_3>
+      <field_4 name="Stt" binary="false" null="false">CA</field_4>
+      <field_5 name="ZP" binary="false" null="false">442123211</field_5>
+      <field_6 name="Phn" binary="false" null="false">1111111112</field_6>
+      <field_7 name="PhnExt" binary="false" null="false">2233</field_7>
+      <field_8 name="PhnAlt" binary="false" null="false">1111111111</field_8>
+      <field_9 name="Fx" binary="false" null="false">2222222222</field_9>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_22>
+    <Row_23>
+      <field_0 name="SpplrID" binary="false" null="false" value="53"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Bodacious Bisquits Inc</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">9921 Street Ave</field_2>
+      <field_3 name="Cty" binary="false" null="false">Breakfastown</field_3>
+      <field_4 name="Stt" binary="false" null="false">FL</field_4>
+      <field_5 name="ZP" binary="false" null="false">123211231</field_5>
+      <field_6 name="Phn" binary="false" null="false">1232123211</field_6>
+      <field_7 name="PhnExt" binary="false" null="false">1223</field_7>
+      <field_8 name="PhnAlt" binary="false" null="false">1232122211</field_8>
+      <field_9 name="Fx" binary="false" null="false">9999999999</field_9>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_23>
+    <Row_24>
+      <field_0 name="SpplrID" binary="false" null="false" value="52"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Nespresso Nest Pressing</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">Nongus</field_2>
+      <field_3 name="Cty" binary="false" null="false">Bongus</field_3>
+      <field_4 name="Stt" binary="false" null="false">AZ</field_4>
+      <field_5 name="ZP" binary="false" null="false">123211221</field_5>
+      <field_6 name="Phn" binary="false" null="false">1232123221</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_24>
+    <Row_25>
+      <field_0 name="SpplrID" binary="false" null="false" value="51"/>
+      <field_1 name="SpplrNm" binary="false" null="false">The Great and Mighty Squash</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="true"/>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1324421123</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_25>
+    <Row_26>
+      <field_0 name="SpplrID" binary="false" null="false" value="50"/>
+      <field_1 name="SpplrNm" binary="false" null="false">BorgenMan Pickle Co</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">123 Pickleton Ave</field_2>
+      <field_3 name="Cty" binary="false" null="false">Pickletown</field_3>
+      <field_4 name="Stt" binary="false" null="false">AR</field_4>
+      <field_5 name="ZP" binary="false" null="false">12323</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_26>
+    <Row_27>
+      <field_0 name="SpplrID" binary="false" null="false" value="48"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Jergusville Cabbages</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">122 OhhNoMY</field_2>
+      <field_3 name="Cty" binary="false" null="false">Cabbages</field_3>
+      <field_4 name="Stt" binary="false" null="false">MA</field_4>
+      <field_5 name="ZP" binary="false" null="false">12321</field_5>
+      <field_6 name="Phn" binary="false" null="true"/>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_27>
+    <Row_28>
+      <field_0 name="SpplrID" binary="false" null="false" value="42"/>
+      <field_1 name="SpplrNm" binary="false" null="false">Mergen corp</field_1>
+      <field_2 name="SpplrAddrss" binary="false" null="false">Sdasd</field_2>
+      <field_3 name="Cty" binary="false" null="true"/>
+      <field_4 name="Stt" binary="false" null="true"/>
+      <field_5 name="ZP" binary="false" null="true"/>
+      <field_6 name="Phn" binary="false" null="false">1231313313</field_6>
+      <field_7 name="PhnExt" binary="false" null="true"/>
+      <field_8 name="PhnAlt" binary="false" null="true"/>
+      <field_9 name="Fx" binary="false" null="true"/>
+      <field_10 name="Dscntnd" binary="false" null="false" value="false"/>
+      <field_11 name="Nts" binary="false" null="true"/>
+      <field_12 name="TxRt" binary="false" null="true"/>
+      <field_13 name="PrmryCntctIDfk" binary="false" null="true"/>
+    </Row_28>
+  </Rows>
+</TableDef>
